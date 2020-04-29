@@ -1,14 +1,11 @@
 class Game {
-  constructor(){
-
-  }
+  constructor(){}
 
   getState(){
     var gameStateRef  = database.ref('gameState');
     gameStateRef.on("value",function(data){
        gameState = data.val();
     })
-
   }
 
   update(state){
@@ -30,9 +27,16 @@ class Game {
     }
 
     car1 = createSprite(100,200);
+    car1.addImage("car1", c1);
+
     car2 = createSprite(300,200);
+    car2.addImage("car2", c2);
+
     car3 = createSprite(500,200);
+    car3.addImage("car3", c3);
     car4 = createSprite(700,200);
+    car4.addImage("car4", c4);
+
     cars = [car1, car2, car3, car4];
   }
 
@@ -42,6 +46,9 @@ class Game {
     Player.getPlayerInfo();
     
     if(allPlayers !== undefined){
+      background("#c68767");
+      image(track, 0,-displayHeight*4,displayWidth, displayHeight*5);
+      track.addImage("track", t1);
       //var display_position = 100;
       
       //index of the array
